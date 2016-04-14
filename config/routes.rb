@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  
+
+  get 'inquiry/index'
+
   root 'top#index'
 
   resources :blogs

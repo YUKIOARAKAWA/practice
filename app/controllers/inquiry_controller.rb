@@ -1,4 +1,5 @@
 class InquiryController < ApplicationController
+
   def index
     @inquiry = Inquiry.new
   end
@@ -8,6 +9,20 @@ class InquiryController < ApplicationController
     if @inquiry.valid? == false
       render :action => "index"
     end
+  end
+
+  def create
+    if params[:back]
+      @inquiry = Inquiry.new(create_params)
+      render :index
+    else
+      Inquiry.create(create_params)
+      @inquiry = Inquiry.new(create_params)
+      redirect_to action: :thanks
+    end
+  end
+
+  def thanks
   end
 
   private

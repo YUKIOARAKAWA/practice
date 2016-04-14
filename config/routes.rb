@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  
+
+  get 'inquiry/index'
+  post 'inquiry/confirm' => 'inquiry#confirm'
+  post 'inquiry' => 'inquiry#create'
+  get 'inquirythanks' => 'inquiry#thanks'
+
   root 'top#index'
 
   resources :blogs
